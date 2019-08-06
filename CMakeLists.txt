@@ -40,14 +40,15 @@ generate_export_header("RaspiAPA102" BASE_NAME "RASPI_APA102" EXPORT_FILE_NAME "
 
 target_sources("RaspiAPA102"
     PRIVATE
-        "${CMAKE_CURRENT_LIST_DIR}/include/RaspiAPA102/RaspiAPA102.h"
-        "src/RaspiAPA102.c")
+        "${CMAKE_CURRENT_LIST_DIR}/include/RaspiAPA102/APA102.h"
+        "${CMAKE_CURRENT_LIST_DIR}/include/RaspiAPA102/ColorConversion.h"
+        "src/APA102.c"
+        "src/ColorConversion.c")
 
 target_compile_definitions("RaspiAPA102" PRIVATE "_GNU_SOURCE")
+target_link_libraries("RaspiAPA102" "m")
 find_library(wiringPi_LIB wiringPi REQUIRED)
 target_link_libraries("RaspiAPA102" ${wiringPi_LIB})
-#find_library(wiringPiSPI_LIB wiringPiSPI REQUIRED)
-#target_link_libraries("RaspiAPA102" ${wiringPiSPI_LIB})
 
 # TODO: Install CMake config.
 install(TARGETS "RaspiAPA102"
@@ -65,6 +66,7 @@ install(DIRECTORY "include/" DESTINATION ${CMAKE_INSTALL_INCLUDEDIR})
 
 if (RASPI_APA102_BUILD_EXAMPLES)
     add_executable("Fade" "examples/Fade.c")
+    target_link_libraries("Fade" "m")
     target_link_libraries("Fade" "RaspiAPA102")
 endif ()
 

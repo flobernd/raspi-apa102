@@ -24,7 +24,7 @@
 
 ***************************************************************************************************/
 
-#include <RaspiAPA102/RaspiAPA102.h>
+#include <RaspiAPA102/APA102.h>
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
@@ -118,7 +118,7 @@ int RaspiAPA102DeviceInitHardware(RaspiAPA102Device* device, uint8_t channel)
         return -1;
     }
 
-    device->native_spi = 1;
+    device->native_spi = true;
     device->channel    = channel;
 
     //wiringPiSPISetup(channel, 500000);
@@ -137,7 +137,7 @@ int RaspiAPA102DeviceInitSoftware(RaspiAPA102Device* device, int pin_sclk, int p
         return -1;
     }
 
-    device->native_spi = 0;
+    device->native_spi = false;
     device->pin_sclk   = pin_sclk;
     device->pin_mosi   = pin_mosi;
     device->pin_cs     = pin_cs;
