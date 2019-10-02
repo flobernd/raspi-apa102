@@ -156,17 +156,17 @@ RASPI_APA102_EXPORT int RaspiAPA102DeviceInitHardware(RaspiAPA102Device* device,
  * @brief   Initializes a new `APA102` device and configures it to use software emulated `SPI` on 
  *          the given `GPIO` pins.
  * 
- * The pin numbers are following the Raspberry Pi GPIO naming sheme. 
+ * The pin numbers are following the Raspberry Pi `GPIO` naming sheme. 
  * 
  * @param   device      A pointer to the `RaspiAPA102Device` struct.
- * @param   pin_sclk    The number of the GPIO pin (broadcom numbering scheme) to use as `SCLK` 
+ * @param   pin_sclk    The number of the `GPIO` pin (broadcom numbering scheme) to use as `SCLK` 
  *                      output.
- * @param   pin_mosi    The number of the GPIO pin (broadcom numbering scheme) to use as `MOSI` 
+ * @param   pin_mosi    The number of the `GPIO` pin (broadcom numbering scheme) to use as `MOSI` 
  *                      output.
- * @param   pin_cs      The number of the GPIO pin (broadcom numbering scheme) to use as channel 
+ * @param   pin_cs      The number of the `GPIO` pin (broadcom numbering scheme) to use as channel 
  *                      select output, or `-1` if not needed.
  * 
- * This function sets the given GPIO pins to `OUTPUT` mode.
+ * This function sets the given `GPIO` pins to `OUTPUT` mode.
  * 
  * @return  A status code.
  */
