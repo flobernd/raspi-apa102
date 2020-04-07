@@ -126,8 +126,7 @@ int RaspiAPA102DeviceInitHardware(RaspiAPA102Device* device, uint8_t channel)
     return 0;
 }
 
-int RaspiAPA102DeviceInitSoftware(RaspiAPA102Device* device, int pin_sclk, int pin_mosi, 
-    int pin_cs)
+int RaspiAPA102DeviceInitSoftware(RaspiAPA102Device* device, int pin_sclk, int pin_mosi, int pin_cs)
 {
     if (!device || 
         (pin_sclk < 0) || (pin_sclk > 29) || 
@@ -148,7 +147,7 @@ int RaspiAPA102DeviceInitSoftware(RaspiAPA102Device* device, int pin_sclk, int p
     if (pin_cs >= 0)
     {
         pinMode(pin_cs, OUTPUT);
-        digitalWrite(device->pin_sclk, HIGH);
+        digitalWrite(pin_cs, HIGH);
     }
 
     return 0;
